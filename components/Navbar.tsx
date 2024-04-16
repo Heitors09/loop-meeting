@@ -14,7 +14,7 @@ const Navbar = () => {
           width={32}
           height={32}
           alt="loop-logo"
-          className="max-sm:size-10 "
+          className="max-sm:size-10 rounded-md"
         />
         <p className="text-[26px] font-extrabold text-white max-sm:hidden">
           Loop
