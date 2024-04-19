@@ -37,6 +37,7 @@ export default function RootLayout({
             colorInputText: "#fff",
           },
         }}
+        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       >
         <body className={`${inter.className} bg-dark-2`}>
           {children}
