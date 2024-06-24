@@ -26,8 +26,35 @@ const MeetingTypeList = () => {
   const [callDetails, setCallDetails] = useState<Call>();
   const { toast } = useToast();
 
-  const createMeeting = async () => {
-    if (!client || user) return;
+  const createInstantMeeting = async () => {
+    if (!client || !user) return;
+
+    try{
+      //creating call paramters
+      const id = crypto.randomUUID()
+      //setting the type and id of corresponding call
+      const call = client.call('default', id)
+      //dealing with .call errors
+      if (!call) throw new Error("Failed to create call");
+      //setting state
+      setCallDetails(call)
+      //create call
+      await call.getOrCreate()
+
+      //pushing to the meeting Setup call
+      router.push(`/meeting/${call.id}`)
+    }catch(error){
+      toast({
+        title: "Failed to create meeting",
+      });
+      console.log(error);
+    }
+
+
+  }
+
+  const createUpcomingMeeting = async () => {
+    if (!client || !user) return;
 
     try {
       if (!values.dateTime) {
@@ -40,6 +67,7 @@ const MeetingTypeList = () => {
       const call = client.call("default", id);
 
       if (!call) throw new Error("Failed to create call");
+      
 
       const startsAt =
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
@@ -76,44 +104,40 @@ const MeetingTypeList = () => {
       <HomeCard
         img="/icons/add-meeting.svg"
         title="New meeting"
-        description="start an instant meeting"
         handleClick={() => setMeetingState("isInstantMeeting")}
-        className="bg-orange-1"
+        className="bg-[#324154]"
       />
       <HomeCard
         img="/icons/schedule.svg"
         title="Schedule meeting"
-        description="Plan your meeting"
         handleClick={() => setMeetingState("isScheduleMeeting")}
-        className="bg-blue-1"
+        className="bg-[#324154]"
       />
       <HomeCard
         img="/icons/recordings.svg"
         title="View Recordings"
-        description="check out your recordings"
         handleClick={() => router.push("/recordings")}
-        className="bg-purple-1"
+        className="bg-[#324154]"
       />
       <HomeCard
         img="/icons/join-meeting.svg"
         title="Join meeting"
-        description="via invitation link"
         handleClick={() => setMeetingState("isJoiningMeeting")}
-        className="bg-yellow-1"
+        className="bg-[#324154]"
       />
       {!callDetails ? (
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
           title="create meeting"
-          handleClick={createMeeting}
+          handleClick={createUpcomingMeeting}
         >
           <div className="flex flex-col gap-2.5">
             <label className="text-base text-normal leading-[22px] text-sky-2">
               Add a description
             </label>
             <Textarea
-              className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-none ring-green-500 bg-transparent ring-1 focus-visible:ring-1 focus-visible:ring-green-500"
               onChange={(e) => {
                 setValues({
                   ...values,
@@ -164,7 +188,7 @@ const MeetingTypeList = () => {
         title="start an instant meeting"
         className="text-center"
         buttonText="Start meeting"
-        handleClick={createMeeting}
+        handleClick={createInstantMeeting}
       />
 
       <MeetingModal

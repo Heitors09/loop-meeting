@@ -32,14 +32,14 @@ export default function RootLayout({
           variables: {
             colorText: "#fff",
             colorPrimary: "#0E789F",
-            colorBackground: "#1c1f2e",
+            colorBackground: "#0f172a",
             colorInputBackground: "#252a41",
             colorInputText: "#fff",
           },
         }}
         publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       >
-        <body className={`${inter.className} bg-dark-2`}>
+        <body className={`${inter.className} bg-[#0f172a]`}>
           {children}
           <Toaster />
         </body>

@@ -17,6 +17,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
   const { toast } = useToast();
 
+
   const getCalls = () => {
     switch (type) {
       case "ended":
@@ -105,6 +106,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 ? meeting.url
                 : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meeting.id}`
             }
+           
           />
         ))
       ) : (

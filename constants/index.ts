@@ -1,28 +1,30 @@
+import { ChevronLeft, ChevronRight, Home, Plus, Video } from "lucide-react";
+
 export const sidebarLinks = [
   {
     label: "Home",
     route: "/",
-    imgUrl: "/icons/Home.svg",
+    icon: Home,
   },
   {
     label: "Upcoming",
     route: "/upcoming",
-    imgUrl: "/icons/upcoming.svg",
+    icon: ChevronRight,
   },
   {
     label: "Previous",
     route: "/previous",
-    imgUrl: "/icons/previous.svg",
+    icon: ChevronLeft,
   },
   {
     label: "Recordings",
     route: "/recordings",
-    imgUrl: "/icons/Video.svg",
+    icon: Video,
   },
   {
     label: "Personal Room",
     route: "/personal-room",
-    imgUrl: "/icons/add-personal.svg",
+    icon: Plus,
   },
 ];
 
