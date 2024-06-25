@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, Notebook } from "lucide-react";
+import { Bell, Headphones, Notebook } from "lucide-react";
 import { useGetCalls } from "@/hooks/useGetCalls";
 
 
@@ -30,9 +30,10 @@ const Navbar = () => {
 
   return (
     <nav className="flex-between fixed z-50 w-full  px-6 py-4 lg:px-10 ">
-      <Link href="/" className="flex items-center gap-1 text-[26px] font-extrabold text-white max-sm:hidden">
+      <Link href="/" className="flex items-center gap-2 text-[26px]  font-extrabold text-white max-sm:hidden">
+        <Headphones size={26}/>
         <p className={raleway.className}>
-          LoopMeeting
+          Loop
         </p>
       </Link>
 
