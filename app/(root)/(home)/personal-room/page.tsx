@@ -16,7 +16,7 @@ const Table = ({
   description: string;
 }) => (
   <div className="flex flex-col items-start gap-2 xl:flex-row">
-    <h1 className="text-base font-medium text-sky-1 lg:text-xl xl:min-w-32">
+    <h1 className="text-base font-medium text-black lg:text-xl xl:min-w-32">
       {title}
     </h1>
     <h1 className="truncate text-sm font-bold max-sm:max-w-[320px] lg:text-xl">
@@ -51,19 +51,19 @@ const PersonalRoom = () => {
 
   const { toast } = useToast();
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-3xl font-bold">Personal Room</h1>
-      <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
+    <section className="flex size-full flex-col gap-10 text-black">
+      <h1 className="text-3xl font-bold ">Personal Room</h1>
+      <div className="flex w-full flex-col gap-8 xl:max-w-[900px] ">
         <Table title="topic" description={`${user?.username}'s meeting room`} />
         <Table title="Meeting Id" description={meetingId!} />
         <Table title="Invite Link" description={meetingLink} />
       </div>
       <div className="flex gap-5">
-        <Button className="bg-green-500 " onClick={startRoom}>
+        <Button className="bg-gradient-to-r from-[#6058e8] to-[#e6497d] text-white " onClick={startRoom}>
           Start Meeting
         </Button>
         <Button
-          className="bg-dark-3 "
+          className="bg-dark-3 text-white"
           onClick={() => {
             navigator.clipboard.writeText(meetingLink);
             toast({

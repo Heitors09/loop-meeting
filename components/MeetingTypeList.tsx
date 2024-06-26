@@ -105,39 +105,38 @@ const MeetingTypeList = () => {
         img="/icons/add-meeting.svg"
         title="New meeting"
         handleClick={() => setMeetingState("isInstantMeeting")}
-        className="bg-[#324154]"
+        className="bg-white shadow-md"
       />
       <HomeCard
         img="/icons/schedule.svg"
         title="Schedule meeting"
         handleClick={() => setMeetingState("isScheduleMeeting")}
-        className="bg-[#324154]"
+        className="bg-white shadow-md"
       />
       <HomeCard
         img="/icons/recordings.svg"
         title="View Recordings"
         handleClick={() => router.push("/recordings")}
-        className="bg-[#324154]"
+        className="bg-white shadow-md"
       />
       <HomeCard
         img="/icons/join-meeting.svg"
         title="Join meeting"
         handleClick={() => setMeetingState("isJoiningMeeting")}
-        className="bg-[#324154]"
+        className="bg-white shadow-md"
       />
       {!callDetails ? (
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
-          title="create meeting"
           handleClick={createUpcomingMeeting}
         >
           <div className="flex flex-col gap-2.5">
-            <label className="text-base text-normal leading-[22px] text-sky-2">
+            <label className="text-base text-normal leading-[22px] text-[#acacac]">
               Add a description
             </label>
             <Textarea
-              className="border-none ring-green-500 bg-transparent ring-1 focus-visible:ring-1 focus-visible:ring-green-500"
+              className="border-none bg-[#edecea]  font-medium focus-visible:ring-1 focus-visible:ring-[#acacac]"
               onChange={(e) => {
                 setValues({
                   ...values,
@@ -147,7 +146,7 @@ const MeetingTypeList = () => {
             />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <label className="text-base text-normal leading-[22px] text-sky-2">
+            <label className="text-base text-normal leading-[22px] text-[#acacac]">
               Select Date and Time
             </label>
             <ReactDatePicker
@@ -163,7 +162,7 @@ const MeetingTypeList = () => {
               timeIntervals={15}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
-              className="w-full rounded bg-dark-3 p-2 focus:outline-none"
+              className="w-full rounded bg-[#edecea] font-medium p-2 focus:outline-none"
             />
           </div>
         </MeetingModal>
@@ -171,7 +170,6 @@ const MeetingTypeList = () => {
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
-          title="meeting created"
           className="text-center"
           buttonText="Copy meeting Link"
           handleClick={() => {
@@ -185,7 +183,6 @@ const MeetingTypeList = () => {
       <MeetingModal
         isOpen={meetingState === "isInstantMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="start an instant meeting"
         className="text-center"
         buttonText="Start meeting"
         handleClick={createInstantMeeting}
@@ -194,14 +191,13 @@ const MeetingTypeList = () => {
       <MeetingModal
         isOpen={meetingState === "isJoiningMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="Type the link here "
         className="text-center"
         buttonText="Join Meeting"
         handleClick={() => router.push(values.link)}
       >
         <Input
           placeholder="meeting Link"
-          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="border-none bg-[#edecea] focus-visible:ring-0 focus-visible:ring-offset-0"
           onChange={(e) => setValues({ ...values, link: e.target.value })}
         />
       </MeetingModal>

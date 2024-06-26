@@ -10,8 +10,9 @@ import Image from "next/image";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col justify-between bg-[#324154] p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
+    <section className="sticky rounded-[10px] left-3  mb-3 flex  h-screen w-fit flex-col justify-between pt-10 bg-white shadow-md px-8  text-white max-sm:hidden lg:w-[264px]">
       <div className="flex flex-1 flex-col gap-6">
+        <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-[#6058e8] to-[#e6497d] font-bold text-2xl p-4">LoopMeeting</h1>
         {sidebarLinks.map(({route, label, icon: Icon}) => {
           const isActive =
             pathname === route || pathname.startsWith(`${route}/`);
@@ -21,15 +22,21 @@ const Sidebar = () => {
               href={route}
               key={label}
               className={cn(
-                "flex gap-4 items-center p-4 rounded-lg justify-start",
-                { "bg-green-500": isActive }
+                "flex gap-4 items-center text-[#acacac] p-4 rounded-lg justify-start",
               )}
             >
               <Icon
-                width={24}
-                height={24}
+                width={40}
+                height={40}
+                className={cn(
+                  "bg-none rounded-md  p-2",
+                  {"bg-gradient-to-r from-[#6058e8] to-[#e6497d]  duration-150 text-white": isActive}
+                )}
               />
-              <p className="text-lg font-semibold max-lg:hidden">
+              <p className={cn(
+                "text-lg font-semibold max-lg:hidden",
+                { "bg-clip-text text-transparent bg-gradient-to-r from-[#6058e8] to-[#e6497d]  duration-150": isActive }
+                )}>
                 {label}
               </p>
             </Link>

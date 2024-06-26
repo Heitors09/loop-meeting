@@ -30,21 +30,21 @@ const Navbar = () => {
 
   return (
     <nav className="flex-between fixed z-50 w-full  px-6 py-4 lg:px-10 ">
-      <Link href="/" className="flex items-center gap-2 text-[26px]  font-extrabold text-white max-sm:hidden">
+      <Link href="/" className="flex items-center gap-2 text-[26px]  font-extrabold text-black max-sm:hidden">
         <Headphones size={26}/>
         <p className={raleway.className}>
           Loop
         </p>
       </Link>
 
-      <div className="flex-between gap-2">
+      <div className="flex-between gap-1">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-          <div className="ring-1 p-1 rounded-full ring-white w-[75px] h-[32px] flex items-center justify-center relative">
-            <div className="w-4 h-4 bg-green-500 rounded-full absolute -top-2 -right-1">
+          <div className="p-1 rounded-full w-[75px] h-[32px] flex items-center justify-center relative">
+            <div className="w-4 h-4 bg-green-500 rounded-full absolute -top-1 -right-0.5">
               <p className="text-[12px] font-bold text-white flex items-start justify-center">{upcomingQuantity}</p>
             </div>
-            <Bell size={20} className="text-white hover:cursor-pointer"/>
+            <Bell size={26} className="text-white hover:cursor-pointer"/>
           </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-[200px] border-none bg-[#324154]">

@@ -20,7 +20,7 @@ const MobileNav = () => {
     <section className="w-full max-w-[264px]">
       <Sheet>
         <SheetTrigger asChild>
-         <Menu size={20} className="text-white"/>
+         <Menu size={26} className="text-white cursor-pointer sm:hidden"/>
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-dark-1">
           <Link href="/" className="flex items-center gap-1">

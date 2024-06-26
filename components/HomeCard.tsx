@@ -18,15 +18,15 @@ const HomeCard = ({
   return (
     <div
       className={cn(
-        " w-full xl:max-w-[270px]  flex p-5 rounded-[14px] cursor-pointer",
+        " w-full xl:max-w-[270px]  text-[#acacac] flex p-5 rounded-[14px] cursor-pointer hover:scale-105 duration-200 ",
         className
       )}
       onClick={handleClick}
     >
-      <div className="flex flex-col  gap-4  size-12 rounded-[10px]">
-       <div className="flex gap-7">
-        <Image src={img} alt="add-meeting" width={27} height={27} />
-        <h1 className=" font-bold">{title}</h1>
+      <div className="flex flex-col  gap-4  rounded-[10px]">
+       <div className="flex items-center gap-2 ">
+        <Image src={img} alt="add-meeting" width={20} height={20} className="bg-gradient-to-r from-[#6058e8] to-[#e6497d] px-2 size-8 p-2 rounded-md"/>
+        <p className=" font-bold ">{title}</p>
        </div> 
       </div>
     </div>
