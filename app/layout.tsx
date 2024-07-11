@@ -25,16 +25,19 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider
         appearance={{
+          elements:{
+            userButtonPopoverCard: 'custom-popover-card'
+          },
           layout: {
-            logoImageUrl: "/icons/yoom-logo.svg",
             socialButtonsVariant: "iconButton",
           },
           variables: {
-            colorText: "#fff",
-            colorPrimary: "#0E789F",
-            colorBackground: "#0f172a",
+            fontWeight: {normal: 600},
+            colorText: "black",
+            colorPrimary: "#6058e8",
+            colorBackground: "#fff",
             colorInputBackground: "#252a41",
-            colorInputText: "#fff",
+            colorInputText: "#acacac",
           },
         }}
         publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}

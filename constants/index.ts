@@ -22,7 +22,7 @@ export const sidebarLinks = [
     icon: Video,
   },
   {
-    label: "Personal Room",
+    label: "Personal",
     route: "/personal-room",
     icon: Plus,
   },

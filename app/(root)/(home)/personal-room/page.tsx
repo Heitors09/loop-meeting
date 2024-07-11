@@ -51,12 +51,12 @@ const PersonalRoom = () => {
 
   const { toast } = useToast();
   return (
-    <section className="flex size-full flex-col gap-10 text-black">
+    <section className="flex size-full flex-col gap-10 text-dark-3">
       <h1 className="text-3xl font-bold ">Personal Room</h1>
-      <div className="flex w-full flex-col gap-8 xl:max-w-[900px] ">
-        <Table title="topic" description={`${user?.username}'s meeting room`} />
-        <Table title="Meeting Id" description={meetingId!} />
-        <Table title="Invite Link" description={meetingLink} />
+      <div className="flex w-full flex-col gap-8 xl:max-w-[900px] bg-white p-7 rounded-[10px]">
+        <Table title="topic : " description={`${user?.username}'s meeting room`} />
+        <Table title="Meeting Id : " description={meetingId!} />
+        <Table title="Invite Link : " description={meetingLink} />
       </div>
       <div className="flex gap-5">
         <Button className="bg-gradient-to-r from-[#6058e8] to-[#e6497d] text-white " onClick={startRoom}>

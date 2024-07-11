@@ -4,7 +4,7 @@ import React from "react";
 const Upcoming = () => {
   return (
     <section className="flex  flex-col gap-10 text-white">
-      <h1 className="text-3xl font-bold text-black">Upcoming</h1>
+      <h1 className="text-3xl font-bold text-dark-3">Upcoming</h1>
       <CallList type="upcoming" />
     </section>
   );
